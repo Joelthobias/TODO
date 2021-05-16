@@ -19,7 +19,8 @@ let user = req.session.user
         console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
         res.render('index',{result,user}) 
       }else{
-      let result= await client.db('todo').collection('list').find().toArray()
+      var query = { id: "" };
+      let result= await client.db('todo').collection('list').find(query).toArray()
       console.log(result);
       res.render('index',{result})
       }
@@ -115,18 +116,28 @@ router.post('/log',(req,res)=>{
 }),
 router.post('/sig',(req,res)=>{
   console.log(req.body);
-  mongoclient.connect('mongodb+srv://joel:Qwertyuiop@1@cluster0.chsu5.mongodb.net/admin',(err,client)=>{
+  mongoclient.connect('mongodb+srv://joel:Qwertyuiop@1@cluster0.chsu5.mongodb.net/admin',async(err,client)=>{
     if(err){
       console.log(err);
     }
     else{
+      let email=req.body.email
+      let data=await client.db('todo').collection('user').findOne({email:email})
+      if(data){
+        res.send('alredy registerd')
+      }else{
       client.db('todo').collection('user').insertOne(req.body).then((result)=>{
+        req.session.user = result
+        req.session.userloggedIn = true;
         console.log(result);
+             })
+      }
+
         
-      })
+ 
     }
   })
-  res.redirect('/')
+  
 }),
 router.get("/logout", (req, res) => {
     req.session.user = null
