@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 <title>Todo App</title>
-<link rel="stylesheet" href="/style.css" type="text/css">
+<link rel="stylesheet" href="stlesheets/style.css" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
 integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -73,8 +73,11 @@ function myFunction(myDIV) {
 <li id="e{{_id}}" style="display: none;" class="todo-list-item">
 <form action="/edt/{{_id}}" method="POST">
 <input type="text" value="{{content}}" name="content">
-<button type="submit">Confirm</button>
-<a href="/" class="cancel">Cancel</a>
+<button class="bi" type="submit">Confirm</button>
+<button class="sma" type="submit"><span class="fas fa-check" aria-hidden="true"></span></button>
+<a href="/" class="cancel sma"><span class="fas fa-times" aria-hidden="true"></span></a>
+  
+<a href="/" class="cancel bi">Cancel</a>
 </form>
 </li>
 </ul>

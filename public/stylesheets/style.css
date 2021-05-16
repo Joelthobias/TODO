@@ -29,7 +29,7 @@ font-family: 'Candal', sans-serif;
 font-size: 2em;
 }
 .todo-header input {
-width: 92%;
+width: 93%;
 border: none;
 border-radius: 5px;
 height: 20px;
@@ -102,6 +102,49 @@ color : rgb(243, 96, 96);
 margin-right: 5px;
 cursor:pointer;
 text-decoration: none;
+}
+  .sma  {
+    display:none
+  }
+  .bi{
+    display:block
+  }
+@media(max-width:570px){
+  
+ .todo-container h2 {
+    padding: 10px;
+    font-family: 'Candal', sans-serif;
+    font-size: 1.3em;
+} 
+  .todo-container {
+    width:100%
+  }
+  .todo{
+    width:75%
+  }
+}
+@media(max-width:540px){
+  .todo-list-item input {
+    flex-grow: 2;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Candal', sans-serif;
+    width: 100%;
+}
+  .sma  {
+    display:block
+  }
+  .bi{
+    display:none
+  }
+.todo-header input {
+width: 88%;
+border: none;
+border-radius: 5px;
+height: 20px;
+font-family: 'Candal', sans-serif;
+}
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
@@ -486,7 +529,7 @@ background-image: linear-gradient(-45deg, #e27442 0%, #f05710 100%);
 }
 
 @media (max-width: 570px) {
-  form {
+  .form {
     padding: 0 1.5rem;
   }
 
