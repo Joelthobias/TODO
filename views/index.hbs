@@ -40,11 +40,22 @@ function myFunction(myDIV) {
         }
     };
 </script>
-
+{{#if user}}
+<button href="/logout" class="btn ls transparent "><a href="/logout" style="
+    text-decoration: none;
+    color: #fff;
+"> Logout</a></button>
+{{else}}
+<button href="/log" class="btn ls transparent "><a href="/log" style="
+    text-decoration: none;
+    color: #fff;
+"> Login or Signin</a></button>
+{{/if}}
 <div class="todo-container">
 <h2>To-Do List</h2>
 <div class="todo">
 <form action="/add" method="POST" class="todo-header">
+<input type="text" value="{{user._id}}" name="id" style="display: none;">
 <input type="text" id="txtPassportNumber" name="content" onkeyup="EnableDisable(this)">
 <button type="submit" id="btnSubmit"  disabled="disabled"><span class="fas fa-plus"></span></button>
 </form>
