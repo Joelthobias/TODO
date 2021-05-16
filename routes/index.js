@@ -11,18 +11,18 @@ let user = req.session.user
       console.log(err);
     }
     else{
-      // if(user){
+      if(user){
         
-      //   let uid =user._id
-      //   let result= await client.db('todo').collection('list').find({id:uid}).toArray()
-      //   console.log(result);
-      //   console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
-      //   res.render('index',{result,user}) 
-      // }else{
+        let uid =user._id
+        let result= await client.db('todo').collection('list').find({id:uid}).toArray()
+        console.log(result);
+        console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
+        res.render('index',{result,user}) 
+      }else{
       let result= await client.db('todo').collection('list').find().toArray()
       console.log(result);
       res.render('index',{result})
-      // }
+      }
 
       
     }
@@ -128,10 +128,10 @@ router.post('/sig',(req,res)=>{
   })
   res.redirect('/')
 }),
-// router.get("/logout", (req, res) => {
-//     req.session.user = null
-//     req.session.userloggedIn = false
-//     res.redirect("/");
-// });
+router.get("/logout", (req, res) => {
+    req.session.user = null
+    req.session.userloggedIn = false
+    res.redirect("/");
+});
 
 module.exports = router;
